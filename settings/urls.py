@@ -21,15 +21,21 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from blog.views import PostCreateView, PostDetailView, PostUpdateView, PostDeleteView, index
+from gallery.views import PhotoCreateView, PhotoListView
+
 # AjaxPhotoUploadView,     url(r'^(?P<pk>\d+)/ajax-upload/$', AjaxPhotoUploadView.as_view(), name='ajax_photo_upload_view',),
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^create/$', login_required(PostCreateView.as_view()), name='create'),
     url(r'^$', index, name='list'),
+    url(r'^create/$', login_required(PostCreateView.as_view()), name='create'),
     url(r'^detail/(?P<pk>[0-9]+)/$', PostDetailView.as_view(), name='detail'),
     url(r'^update/(?P<pk>[0-9]+)/$', login_required(PostUpdateView.as_view()), name='update'),
     url(r'^delete/(?P<pk>[0-9]+)/$', login_required(PostDeleteView.as_view()), name='delete'),
+
+    url(r'^photo_create/$', login_required(PhotoCreateView.as_view()), name='photo-create'),
+    url(r'^photo_list/$', PhotoListView.as_view(), name='photo-list'),
+
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^tinymce/', include('tinymce.urls')),
