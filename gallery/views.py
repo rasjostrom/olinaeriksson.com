@@ -14,5 +14,5 @@ class PhotoListView(ListView):
 class PhotoCreateView(CreateView):
     model = Photo
     template_name = "gallery/photo_createview.html"
-    fields = ['img', 'text']
+    fields = ['img', 'text', 'published']
     success_url = reverse_lazy('photo-list')

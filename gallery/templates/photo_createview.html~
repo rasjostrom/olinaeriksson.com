@@ -1,5 +1,0 @@
-{% extends 'blog/templates/blog/index.html' %}
-
-{% block body %}
-
-{% endblock body %}
