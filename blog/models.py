@@ -17,8 +17,8 @@ class TimeStampedModel(models.Model):
 
     class Meta:
         abstract = True
-        get_latest_by = 'modified'
-        ordering = ('-modified', '-created')
+        get_latest_by = 'created'
+        ordering = ('-created', '-modified')
     
 class Post(TimeStampedModel):
     titel = models.CharField(max_length=40)
