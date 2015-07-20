@@ -6,6 +6,7 @@
 <form action="{% url 'photo-create' %}" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <p>{{ form.non_field_errors }}</p>
+    {{ form }}
   <div align="center">
     <input type="submit" value="Ladda up" />
   </div>
