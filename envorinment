@@ -1,0 +1,10 @@
+
+To run development server
+python manage.py runserver --settings=settings.production
+
+
+Wand
+http://docs.wand-py.org/en/0.4.0/
+Wand is a library for rezising images.
+This package is required for the application to run.
+apt-get install libmagickwand-dev
