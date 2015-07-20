@@ -17,6 +17,9 @@ from django.contrib.auth.decorators import login_required
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 from blog.views import PostCreateView, PostDetailView, PostUpdateView, PostDeleteView, index
 # AjaxPhotoUploadView,     url(r'^(?P<pk>\d+)/ajax-upload/$', AjaxPhotoUploadView.as_view(), name='ajax_photo_upload_view',),
 
@@ -30,4 +33,4 @@ urlpatterns = [
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^tinymce/', include('tinymce.urls')),
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
