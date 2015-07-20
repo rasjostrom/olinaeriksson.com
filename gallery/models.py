@@ -22,6 +22,6 @@ class Photo(TimeStampedModel):
         if self.img:
             with Image(filename=self.img.path) as img:
                 img.save(filename=self.img.path+'.ORGINAL')
-                img.transform(resize='x700')
+                img.transform(resize='700x')
                 img.compression_quality = 90
                 img.save(filename=self.img.path)
