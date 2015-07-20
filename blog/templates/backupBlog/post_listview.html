@@ -1,0 +1,29 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles %}
+
+{% block navbar %}
+<ul class="nav navbar-nav navbar-right">
+  {% if user.is_authenticated %}
+  <li><a href="{% url 'create' %}">New Post</a></li>
+  {% endif %}
+  <li><a href="{% url 'list' %}">Home</a></li>
+  {% if user.is_anonymous %}
+  <li><a href="{% url 'django.contrib.auth.views.login' %}">Sign in</a></li>
+  {% else %}
+  <li><a href="{% url 'django.contrib.auth.views.logout' %}">Sign out</a></li>
+  {% endif %}
+</ul>
+{% endblock %}
+
+{% block body %}
+{% for post in object_list %}
+<div class="post-preview">
+  <a href="{% url 'detail' post.pk %}">
+    <h2 class="post-title">{{ post.titel }}</h2>
+  </a>
+  {{ post.text }}
+  <p class="post-meta">Created {{ post.created }} </p>
+</div>
+<hr>
+{% endfor %}
+{% endblock body %}

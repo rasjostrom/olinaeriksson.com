@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}OlinaEriksson.com{% endblock title %}</title>
+    <!--<script type="text/javascript" src="http://xregexp.com/xregexp.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/core.css' %}">-->
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div>
+      {% block headcontent %}
+      <h1> Olina Eriksson </h1>
+      <a href="{% url 'create' %}">Nytt inlagg</a>
+      <a href="{% url 'list' %}"> Tillbaka </a>
+      {% if user.is_anonymous %}
+      <a href="{% url 'django.contrib.auth.views.login' %}">Logga in</a>
+      {% else %}
+      <a href="{% url 'django.contrib.auth.views.logout' %}">Logga ut</a>
+      {% endif %}
+      {% endblock %}
+    </div>
+    {% block body %}
+    <ul>
+      {% for post in object_list %}
+      <li>
+	<h3>{{ post.titel }}</h3></br>
+	{{ post.text }}</br>
+	<a href="{% url 'detail' post.pk %}">Link</a> 
+      </li>
+      {% endfor %}
+    </ul>
+    {% endblock body %}
+  </body>
+</html>

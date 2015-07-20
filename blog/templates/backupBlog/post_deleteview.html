@@ -1,0 +1,11 @@
+{% extends 'blog/index.html' %}
+
+{% block body %}
+<form action="{% url 'delete' object.pk%}" method="POST">
+  {% csrf_token %}
+  <p>Ar du saker pa detta olina?</p>
+  <input class="btn btn-default"type="submit" value="Japp!"/>
+</form>
+{% endblock body %}
+
+

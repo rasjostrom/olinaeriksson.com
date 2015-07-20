@@ -1,0 +1,23 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles %}
+
+{% block static_extras %}
+<script type="text/javascript" src="{% static 'tiny_mce/tiny_mce.js' %}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'tiny_mce/textarea.js' %}" type="text/javascript"></script>
+{% endblock static_extras %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<form  method="POST" action="">
+  {% csrf_token %}
+  {{ form.as_p }}  
+  <input type="submit" value="Skapa post" />
+</form>
+{% endif %}
+{% endblock %}
+
+{% block side-about %}
+{% endblock %}
+
+{% block recentblock %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles %}
+
+{% block static_extras %}
+<script type="text/javascript" src="{% static 'tiny_mce/tiny_mce.js' %}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'tiny_mce/textarea.js' %}" type="text/javascript"></script>
+{% endblock static_extras %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form }}  
+  <input type="submit" value="Updatera" />
+</form>
+{% endif %}
+{% endblock body %}

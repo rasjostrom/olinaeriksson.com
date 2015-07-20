@@ -1,0 +1,87 @@
+{% extends 'blog/index.html' %}
+
+{% block body %}
+<h2 id="postTitle">{{ object.titel }}</h3></br>
+<p>
+  {{ object.text | safe }}
+</p>
+</br>
+{% if user.is_authenticated %}
+<hr>
+<a class="btn btn-default" href="{% url 'update' object.pk%}" style="width: 82px;">Uppdatera</a>
+<a class="btn btn-default" href="{% url 'delete' object.pk%}" style="width: 72px;">Ta bort</a>
+{% endif %}
+<div style="margin-bottom: 10px;"> </div>
+
+{% block recentblock %}
+{% endblock %}
+
+<!-- <div class="blog-item-footer">                                -->
+<!--   <\!-- Comments -\-> -->
+<!--   <div class="blog-recent-comments panel panel-default margin-bottom-30"> -->
+<!--     <div class="panel-heading"> -->
+<!--       <h3>Comments</h3> -->
+<!--     </div> -->
+<!--     <ul class="list-group"> -->
+      
+<!--       <li class="list-group-item"> -->
+<!--         <div class="row"> -->
+<!--           <div class="col-md-10"> -->
+<!--             <h4>Thank you!</h4> -->
+<!--             <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, -->
+<!--               sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p> -->
+<!--             <span class="date"> -->
+<!--               <i class="fa fa-clock-o color-gray-light"></i>10 May 2013</span> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--       </li> -->
+      
+<!--       <\!-- Comment Form -\-> -->
+<!--       <li class="list-group-item"> -->
+<!--         <div class="blog-comment-form"> -->
+<!--           <div class="row margin-top-20"> -->
+<!--             <div class="col-md-12"> -->
+<!--               <div class="pull-left"> -->
+<!--                 <h3>Leave a Comment</h3> -->
+<!--               </div> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--           <div class="row margin-top-20"> -->
+<!--             <div class="col-md-12"> -->
+<!--               <form> -->
+<!--                 <label>Name</label> -->
+<!--                 <div class="row margin-bottom-20"> -->
+<!--                   <div class="col-md-7 col-md-offset-0"> -->
+<!--                     <input class="form-control" type="text"> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <label>Email -->
+<!--                   <span>*</span> -->
+<!--                 </label> -->
+<!--                 <div class="row margin-bottom-20"> -->
+<!--                   <div class="col-md-7 col-md-offset-0"> -->
+<!--                     <input class="form-control" type="text"> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <label>Message</label> -->
+<!--                 <div class="row margin-bottom-20"> -->
+<!--                   <div class="col-md-11 col-md-offset-0"> -->
+<!--                     <textarea class="form-control" rows="8"></textarea> -->
+<!--                   </div> -->
+<!--                 </div> -->
+<!--                 <p> -->
+<!--                   <button class="submitbtn btn-primary" type="submit">Send Message</button> -->
+<!--                 </p> -->
+<!--               </form> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--       </li> -->
+<!--       <\!-- End Comment Form -\->  -->
+<!--     </ul> -->
+<!--   </div> -->
+<!--   <\!-- End Comments -\-> -->
+<!-- </div> -->
+{% endblock body %}
+
+

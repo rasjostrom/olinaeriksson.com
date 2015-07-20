@@ -1,0 +1,9 @@
+{% extends 'blog/index.html' %}
+
+{% block body %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form }}  
+  <input type="submit" value="Updatera" />
+</form>
+{% endblock body %}
