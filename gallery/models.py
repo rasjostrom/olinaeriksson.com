@@ -14,7 +14,7 @@ def uploadPhotoTo(instance, filename):
 
 class Photo(TimeStampedModel):
     img = models.ImageField(upload_to=uploadPhotoTo)
-    text = models.CharField(max_length=254, default='')
+    text = models.TextField(default='')
     published = models.BooleanField(default=False)
     
     def save(self, *args, **kwargs):
