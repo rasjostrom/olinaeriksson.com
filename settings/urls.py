@@ -30,5 +30,4 @@ urlpatterns = [
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
 ]

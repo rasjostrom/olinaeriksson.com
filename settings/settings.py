@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&5&8@@i*h_*0e$yo4ooktxr7$!8f-vmhg+4i)fb366kt8pq70i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -116,7 +116,6 @@ TINYMCE_COMPRESSOR = True
 TINYMCE_DEFAULT_CONFIG = {
     'mode': 'textareas',
     'theme': "advanced",
-    'file_browser_callback': 'mce_filebrowser',
     'plugins': 'paste, searchreplace, media, emotions',
     'theme_advanced_toolbar_align' : 'left',
     'theme_advanced_toolbar_location': 'top',
